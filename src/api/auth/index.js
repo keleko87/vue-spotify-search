@@ -1,14 +1,10 @@
 export default {
   getLoginURL(scopes = ["user-read-private", "user-read-email"]) {
-    return (
-      "https://accounts.spotify.com/authorize?client_id=" +
-      process.env.VUE_APP_SPOTIFY_CLIENT_ID +
-      "&redirect_uri=" +
-      encodeURIComponent(process.env.VUE_APP_SPOTIFY_REDIRECT_URI) +
-      "&scope=" +
-      encodeURIComponent(scopes.join(" ")) +
-      "&response_type=token"
-    );
+    return `https://accounts.spotify.com/authorize?client_id=${
+      process.env.VUE_APP_SPOTIFY_CLIENT_ID
+    }&redirect_uri=${encodeURIComponent(
+      process.env.VUE_APP_SPOTIFY_REDIRECT_URI
+    )}&scope=${encodeURIComponent(scopes.join(" "))}&response_type=token`;
   },
 
   existsHashValue(hash) {
